@@ -20,12 +20,14 @@ Welcome to Galactic Gateway! This application provides a gateway to explore stun
 
 1. Clone the repository to your local machine.
 2. Install the necessary dependencies by running:
-3. Access the application through your web browser.
+   `pip install -r requirements.txt` (or) `pip install -r /path/to/requirements.txt`
+3. Access the application through your web browser by running:
+   `streamlit run project.py`
 4. Explore the different features and functionalities offered by Galactic Gateway.
 
-## Contributors
+## Motivation
 
-This project was developed as the final project for CS50's Introduction to Programming with Python course by ,e.
+This project was developed as the final project for CS50's Introduction to Programming with Python course by me.
 
 ## Feedback and Contributions
 
