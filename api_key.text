@@ -1,0 +1,3 @@
+for storing your api key,
+create a file called "api_key.txt" NOT "api_key.text"
+and then store your api key in that file ("api_key.txt")
