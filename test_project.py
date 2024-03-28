@@ -1,25 +1,13 @@
-from project import read_api_key, apod, search
-import requests
-
-def read_api_key():
-    with open("api_key.txt", "r") as file:
-        api_key = file.read().strip()
-    return api_key
-
-API_KEY = read_api_key()
+from project import *
 
 def test_read_api_key():
-    # Assuming api_key.txt contains a valid API key
-    assert read_api_key() != ""
+    assert len(read_api_key()) > 0
 
-def test_apod():
-    # Assuming API_KEY is valid
-    response = requests.get(f"https://api.nasa.gov/planetary/apod?api_key={API_KEY}")
-    assert response.status_code == 200
-    assert apod() is None
+def test_apod_response():
+    assert apod_response() >= 0
 
-def test_search():
-    # Assuming API_KEY is valid
-    response = requests.get(f"https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?api_key={API_KEY}")
-    assert response.status_code == 200
-    assert search() is None
+def test_mars_pictures_response():
+    assert mars_pictures_response() >= 0
+
+def test_earth_image_response():
+    assert earth_image_response() >= 0

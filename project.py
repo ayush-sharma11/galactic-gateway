@@ -1,5 +1,6 @@
 import streamlit as st
 import requests
+import webbrowser
 
 def read_api_key():
     with open("api_key.txt", "r") as file:
@@ -46,7 +47,7 @@ def main():
         date = st.text_input("Date", "")
         st.write("In YYYY-MM-DD format only!")
 
-        earth_image(lat, lon, date)
+        earth_image(lon, lat, date)
     
     elif page == "Custom Search":
         st.header("Custom Search")
@@ -105,16 +106,29 @@ def mars_pictures(num):
             st.image(image_urls[i])
 
 def earth_image(lon, lat, date):
-    lon = str(lon)
+    lon= str(lon)
     lat = str(lat)
 
-    url = f"https://api.nasa.gov/planetary/earth/assets?lon={lon}&lat={lat}&date={date}&dim=0.15&api_key={API_KEY}"
+    url = f"https://api.nasa.gov/planetary/earth/imagery?lon={lon}&lat={lat}&date={date}&&&dim=0.10&api_key={API_KEY}"
+
+    # webbrowser.open(url)
 
     response = requests.get(url)
     if response.status_code == 200:
-        image_data = response.json()
-        img_url = image_data["url"]
-        st.image(img_url)
+        st.image(url)
+
+def apod_response():
+    response = requests.get(f"https://api.nasa.gov/planetary/apod?api_key={API_KEY}")
+    return response.status_code
+
+def mars_pictures_response():
+    response = requests.get(f"https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key={API_KEY}")
+    return response.status_code
+
+def earth_image_response():
+    response = requests.get(f"https://api.nasa.gov/planetary/earth/imagery?lon=100.75&lat=1.5&date=2014-02-01&api_key={API_KEY}")
+    return response.status_code
+
     
 if __name__ == "__main__":
     main()

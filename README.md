@@ -1,5 +1,9 @@
 # Galactic Gateway
 
+#### Video Demo: https://youtu.be/CuZAhA1teBs
+
+## Introduction
+
 Welcome to Galactic Gateway! This application provides a gateway to explore stunning images and information from outer space, including the astronomy picture of the day, images captured by the Curiosity rover on Mars, Earth images from NASA satellites, and customizable search for various space entities.
 
 ## Features
